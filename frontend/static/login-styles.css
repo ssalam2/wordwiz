@@ -1,0 +1,151 @@
+#body {
+  height: 800px;
+  font-family: 'VT323', monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+header {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: auto;
+  height: auto;
+  padding: 2px;
+}
+
+main {
+  width: 700px;
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#errorbox {
+  color: crimson;
+}
+
+form {
+  width: 690px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-inline: 5px;
+  padding-block: 20px;
+}
+
+#username-container {
+  display: inline-flex;
+  justify-content: flex-start;
+  width: 680px;
+  height: 50px;
+  padding-inline: 5px;
+}
+
+#username-container label {
+  display: inline-block;
+  width: 120px;
+  height: 36px;
+  font-size: 24px;
+  padding-inline: 15px;
+  padding-block: 4px;
+}
+
+#username-container input {
+  width: 480px;
+  height: 30px;
+  padding-right: 30px;
+  padding-block: 2px;
+}
+
+#password-container {
+  display: inline-flex;
+  justify-content: flex-start;
+  width: 680px;
+  height: 50px;
+  padding-inline: 5px;
+}
+
+#password-container label {
+  display: inline-block;
+  width: 120px;
+  height: 36px;
+  font-size: 24px;
+  padding-inline: 15px;
+  padding-block: 4px;
+}
+
+#password-container input {
+  width: 480px;
+  height: 30px;
+  padding-right: 30px;
+  padding-block: 2px;
+}
+#button-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 680px;
+  padding-inline: 5px;
+}
+
+#button-container #login {
+  width: 90px;
+  padding-inline: 10px;
+  color: blue;
+  font-size: 18px;
+  background-color: transparent;
+  border: transparent;
+}
+
+#button-container #login:hover {
+  color: aqua
+}
+
+#button-container #guestLogin {
+  width: 140px;
+  padding-inline: 5px;
+  color: rgb(107, 107, 248);
+  font-size: 18px;
+  background-color: transparent;
+  border: transparent;
+}
+
+#button-container #guestLogin:hover {
+  color: aqua
+}
+
+section {
+  width: 690px;
+  display: flex;
+  justify-content: center;
+  padding-inline: 5px;
+}
+
+section #createAccount {
+  width: 140px;
+  padding-inline: 5px;
+  color: rgb(107, 107, 248);
+  font-size: 18px;
+  background-color: transparent;
+  border: transparent;
+}
+
+section #createAccount:hover {
+  color: aqua
+}
+
+#login, #guestLogin, #createAccount {
+  cursor: pointer;
+}
