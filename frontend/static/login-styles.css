@@ -32,10 +32,6 @@ main {
   padding: 10px;
 }
 
-#errorbox {
-  color: crimson;
-}
-
 form {
   width: 690px;
   height: 140px;
