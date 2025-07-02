@@ -1,11 +1,16 @@
 //The HTTPClient.js implementation was taken from Day19 activity HTTPClient.js file
 async function processJSONResponse(res) {
-  return res.json();
+  const resObj = {
+    data: res.json(),
+    statusCode: res.status,
+    statusText: res.statusText,
+  }
+
+  return resObj;
 };
 
 function handleError(err) {
   console.error('Error in fetch', err);
-  throw err;
 };
 
 export default {
@@ -20,6 +25,8 @@ export default {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'X-Content-Type-Options': 'nosniff'
       },
       body: JSON.stringify(data),
     })
@@ -33,6 +40,8 @@ export default {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'X-Content-Type-Options': 'nosniff'
       }
     })
       .then(processJSONResponse)
@@ -46,6 +55,8 @@ export default {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'X-Content-Type-Options': 'nosniff'
       }
     })
       .then(processJSONResponse)
@@ -57,6 +68,8 @@ export default {
     return fetch(url, {
       method: 'DELETE',
       headers: {
+        'Accept': 'application/json',
+        'X-Content-Type-Options': 'nosniff'
       }
     })
       .then(processJSONResponse)

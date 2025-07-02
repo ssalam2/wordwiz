@@ -1,21 +1,33 @@
 <script>
+	import { goto } from '$app/navigation';
+	import APIClient from '$lib/APIClient.js';
+	import logo from '$lib/assets/logo.png';
 	let { username, password } = $state('');
 
 	let isusernameValid = $derived(
-		username !== '' && username.length <= 20 && /^[a-zA-Z0-9_]+$/.test(username)
+		username !== '' // && username.length <= 20 && /^[a-zA-Z0-9_]+$/.test(username)
 	);
 	let ispasswordValid = $derived(
-		password !== '' && password.length <= 16 && /^[a-zA-Z0-9_!]+$/.test(password)
+		password !== '' // && password.length <= 16 && /^[a-zA-Z0-9_!]+$/.test(password)
 	);
 
 	function handleLogin(event) {
 		event.preventDefault();
-		if (isusernameValid && ispasswordValid) {
-			// Handle login logic here
-			console.log('Logging in with:', { username, password });
-		} else {
-			alert('Invalid username or password format.');
-		}
+
+		APIClient.logIn(username, password)
+			.then((response) => {
+				if (response.statusCode >= 400) {
+					console.log(response.statusCode + ' ' + response.statusText);
+					alert('Invalid credentials. Please try again.');
+					return;
+				}
+
+				console.log(response.data);
+				goto('/home');
+			})
+			.catch((error) => {
+				console.error(error.message);
+			});
 	}
 
 	function handleGuest() {
@@ -26,9 +38,8 @@
 	function handleCreateAccount() {
 		// Handle account creation logic here
 		console.log('Redirecting to account creation');
+		goto('/createaccount');
 	}
-
-	import logo from '$lib/assets/logo.png';
 </script>
 
 <div id="body">

@@ -20,7 +20,7 @@ router.post('/users/login', (req, res) => {
     UserDAO.getUserByCredentials(username, password).then((user) => {
       console.log("here in login post!")
       generateToken(req, res, user);
-      res.json({user: user});
+      res.status(200).json({user: user});
     })
     .catch((error) => {
       console.log("here in login error!")

@@ -1,4 +1,5 @@
-name: csc342project
+name: wordwiz
+version: '1.0'
 
 services:
   proxy:
@@ -17,13 +18,14 @@ services:
     environment:
       - PORT=80
     env_file: 
-      - .env 
+      - .env
 
   frontend:
     build: ./frontend
     restart: unless-stopped
     volumes:
       - ./frontend/src:/app/src
+      - ./frontend/static:/app/static
     environment:
       - PORT=80
   
